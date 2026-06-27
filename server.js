@@ -1,16 +1,14 @@
-const express = require('express')
+//server ko start karna
+//database se connect karna
 
-const app = express() //server create kr chuke ho
+const app = require("./src/app")
+const mongoose = require("mongoose")
 
-app.get('/', (req, res)=>{
-    res.send("Hello World") //jab bhi home page pe jaoge to hello world show hoga
-})
+function connectToDB(){
+    mongoose.connect("mongodb+srv://ajay:Bz8hcGrAg9xPTZPM@cluster0.l6bvia6.mongodb.net/day-06")
+}
+connectToDB()
 
-app.get('/about', (req, res)=>{
-    res.send("This is about page") //jab bhi about page pe jaoge to this is about page show hoga
-})
-
-
-app.listen(3000, ()=>{
-    console.log("server is running on port 3000") //server start ho gya
+app.listen(3000,()=>{
+    console.log("server is running on port 3000")
 })
