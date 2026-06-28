@@ -1,14 +1,12 @@
 //server ko start karna
 //database se connect karna
-
-const app = require("./src/app")
+require("dotenv").config()
 const mongoose = require("mongoose")
+const app = require('./src/app')
+const connectToDB = require('./src/config/database')
 
-function connectToDB(){
-    mongoose.connect("mongodb+srv://ajay:Bz8hcGrAg9xPTZPM@cluster0.l6bvia6.mongodb.net/day-06")
-}
+
 connectToDB()
-
-app.listen(3000,()=>{
-    console.log("server is running on port 3000")
+app.listen(3000, ()=>{
+  console.log('server is running on port 3000')
 })
